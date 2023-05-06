@@ -1,0 +1,33 @@
+.card {
+  @apply relative;
+  &__container {
+    @apply h-40 col-span-1 p-3 
+    bg-gradient-to-tr from-cyan-400 via-purple-400 to-purple-600 rounded-xl
+    text-white font-semibold relative;
+    text-shadow: 2px 2px #000000;
+  }
+  &__actions {
+    @apply absolute bg-purple-300 p-1 rounded-lg z-[2] right-[-10px] top-[-5px];
+  }
+  &__num {
+    @apply text-sm;
+  }
+  &__heading {
+    @apply text-2xl;
+  }
+  &__def {
+    @apply p-2 px-4 overflow-y-scroll max-h-20 break-words
+     text-sm bg-blue-500 rounded-xl overflow-x-hidden align-text-top;
+  }
+  &__suggested {
+    @apply bg-transparent bg-none overflow-hidden;
+  }
+  &__suggested:after {
+    @apply bg-[url('../../public/Question_Mark.png')] bg-yellow-400 
+    bg-center bg-[length:50px_50px] blur-[2px]
+    absolute w-[300%] h-[400%] md:w-[200%] md:h-[200%] top-[-50%] left-[-50%] z-[-1];
+
+    transform: rotate(30deg);
+    content: "";
+  }
+}
