@@ -4,5 +4,6 @@ export interface ICardProps {
   suggested: boolean;
   obvious: boolean;
   definition: string;
+  flipTime: number;
   handleCard: Function;
 }

@@ -1,6 +1,6 @@
 "use client";
 import { Metadata } from "next";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Card from "../../components/cards/card";
 import { Actions, ICard } from "../../tds/ICards";
 import style from "./card.module.scss";
@@ -55,18 +55,19 @@ export default function Cards() {
         "TestDefinition1TestDefi nition1TestDe inition1TestDefinition1TestDefin ition1TestDefinition TestDefinition1TestDefinition1TestDefi nition1Test Definition1Te stDefinition1",
     },
   ]);
+  const flipTime = useRef(250);
 
   const handleCardState = (cardId: number, action: Actions) => {
-    updateCards((arr) => cardEditor.editCardState(arr, cardId, action));
+    updateCards((arr) => cardEditor.editCardMode(arr, cardId, action));
   };
-
   return (
     <>
       <div className={style.card__container}>
-        {cards.map((e) => (
+        {cards.map((e, i) => (
           <Card
             id={e.id}
             word={e.word}
+            flipTime={flipTime.current * i + 1}
             definition={e.definition}
             key={e.id}
             suggested={e.suggested}
