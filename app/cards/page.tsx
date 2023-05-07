@@ -1,6 +1,6 @@
 "use client";
 import { Metadata } from "next";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Card from "../../components/cards/card";
 import { Actions, ICard } from "../../tds/ICards";
 import style from "./card.module.scss";
@@ -67,7 +67,7 @@ export default function Cards() {
           <Card
             id={e.id}
             word={e.word}
-            flipTime={flipTime.current * i + 1}
+            flipTime={flipTime.current * (i + 1)}
             definition={e.definition}
             key={e.id}
             suggested={e.suggested}

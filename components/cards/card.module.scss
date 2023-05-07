@@ -27,15 +27,21 @@
     @apply p-2 px-4 overflow-y-scroll max-h-20 break-words
      text-sm bg-blue-500 rounded-xl overflow-x-hidden align-text-top;
   }
-  &__suggested {
+  &__moded {
     @apply bg-transparent bg-none overflow-hidden;
   }
-  &__suggested:after {
-    @apply bg-[url('../../public/Question_Mark.png')] bg-yellow-400 
+  &__moded:after {
+    @apply bg-[url('../../public/Question_Mark.png')] 
     bg-center bg-[length:50px_50px] blur-[2px]
     absolute w-[300%] h-[400%] md:w-[200%] md:h-[200%] top-[-50%] left-[-50%] z-[-1];
 
     transform: rotate(30deg);
     content: "";
+  }
+  &_suggested {
+    @apply bg-yellow-400 z-0;
+  }
+  &_obvious {
+    @apply bg-green-400 z-0;
   }
 }

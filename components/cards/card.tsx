@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ICardProps } from "../../tds/ICardProps";
 import style from "./card.module.scss";
 
@@ -13,13 +13,25 @@ export default function Card({
   flipTime,
 }: ICardProps) {
   const [isDefVisible, setDefVisible] = useState(false);
+
   const cardContainerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setTimeout(() => {
       console.log(flipTime);
       cardContainerRef.current?.classList.add(style.card_flip);
     }, flipTime);
-  });
+  }, []);
+
+  const cardMode = useMemo(() => {
+    if (obvious) {
+      return "obvious";
+    }
+    if (suggested) {
+      return "suggested";
+    }
+    return "";
+  }, [obvious, suggested]);
 
   return (
     <figure className={style.card__figure}>
@@ -30,8 +42,10 @@ export default function Card({
         </div>
         <div
           className={
-            suggested
-              ? `${style.card__container} ${style.card__suggested}`
+            cardMode
+              ? `${style.card__container} ${style["card_" + cardMode]} ${
+                  style.card__moded
+                } `
               : `${style.card__container}`
           }
         >

@@ -13,6 +13,13 @@ class CardEditor {
   editCardMode(cards: Array<ICard>, cardId: number, action: Actions) {
     return cards.map((card) => {
       if (card.id === cardId) {
+        if (action === "suggested") {
+          card.obvious = false;
+          console.log(action);
+          card[action] = !card[action];
+          return card;
+        }
+        card.suggested = false;
         card[action] = !card[action];
       }
       return card;
