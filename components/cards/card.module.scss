@@ -9,11 +9,12 @@
     perspective: 1500px;
   }
   &__container {
-    @apply h-40 col-span-1 p-3 
+    @apply h-44 col-span-1 flex flex-col justify-between content-start
     bg-gradient-to-tr from-cyan-400 via-purple-400 rounded-xl to-purple-600
-    text-white font-semibold relative;
+    text-white font-semibold relative  overflow-hidden;
     text-shadow: 2px 2px #000000;
   }
+
   &__actions {
     @apply absolute bg-purple-300 p-1 rounded-lg z-[2] right-[-10px] top-[-5px];
   }
@@ -21,11 +22,17 @@
     @apply text-sm;
   }
   &__heading {
-    @apply text-2xl;
+    @apply text-2xl px-3 py-2;
+  }
+  &__defBtn {
+    @apply mb-3 px-4 self-start;
   }
   &__def {
-    @apply p-2 px-4 overflow-y-scroll max-h-20 break-words
-     text-sm bg-blue-500 rounded-xl overflow-x-hidden align-text-top;
+    @apply p-2 px-4 overflow-y-scroll max-h-0 break-words mb-[-20px]
+     text-sm bg-gray-600 overflow-x-hidden align-text-top transition-all;
+  }
+  &__def_up {
+    @apply max-h-40 mb-0;
   }
   &__moded {
     @apply bg-transparent bg-none overflow-hidden;

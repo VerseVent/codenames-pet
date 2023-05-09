@@ -38,7 +38,8 @@ export default function Card({
       <div className={style.card} ref={cardContainerRef}>
         <div className={style.card__actions}>
           <button onClick={() => handleCard(id, "suggested")}>❓</button>
-          <button onClick={() => handleCard(id, "obvious")}>✅</button>
+          <button onClick={() => handleCard(id, "obvious")}>🧠</button>
+          <button>✅</button>
         </div>
         <div
           className={
@@ -50,17 +51,24 @@ export default function Card({
           }
         >
           <p className={style.card__heading}>{word}</p>
-          <button onClick={() => setDefVisible(!isDefVisible)}>
-            Definition {"->"}
-          </button>
+          <div>
+            <button
+              className={style.card__defBtn}
+              onClick={() => setDefVisible(!isDefVisible)}
+            >
+              Definition {"->"}
+            </button>
 
-          {isDefVisible ? (
-            <div className={style.card__def}>
-              <p>{definition}</p>
-            </div>
-          ) : (
-            <></>
-          )}
+            {isDefVisible ? (
+              <div className={`${style.card__def} ${style.card__def_up}`}>
+                <p>{definition}</p>
+              </div>
+            ) : (
+              <div className={style.card__def}>
+                <p>{definition}</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </figure>

@@ -1,10 +1,11 @@
 "use client";
 import { Metadata } from "next";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Card from "../../components/cards/card";
-import { Actions, ICard } from "../../tds/ICards";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { Actions } from "../../tds/ICards";
 import style from "./card.module.scss";
-import { cardEditor } from "./CardEditor";
+import { setObvious, setSuggested } from "./CardsSlice";
 
 export const metadata: Metadata = {
   title: "Cards",
@@ -13,52 +14,15 @@ export const metadata: Metadata = {
 };
 
 export default function Cards() {
-  const [cards, updateCards] = useState<Array<ICard>>([
-    {
-      id: 1,
-      word: "TestCard1",
-      suggested: false,
-      obvious: false,
-      definition:
-        "TestDefinition1TestDefi nition1TestDe inition1TestDefinition1TestDefin ition1TestDefinition TestDefinition1TestDefinition1TestDefi nition1Test Definition1Te stDefinition1",
-    },
-    {
-      id: 2,
-      word: "TestCard2",
-      suggested: false,
-      obvious: false,
-      definition:
-        "TestDefinition1TestDefi nition1TestDe inition1TestDefinition1TestDefin ition1TestDefinition TestDefinition1TestDefinition1TestDefi nition1Test Definition1Te stDefinition1",
-    },
-    {
-      id: 3,
-      word: "TestCard3",
-      suggested: false,
-      obvious: false,
-      definition:
-        "TestDefinition1TestDefi nition1TestDe inition1TestDefinition1TestDefin ition1TestDefinition TestDefinition1TestDefinition1TestDefi nition1Test Definition1Te stDefinition1",
-    },
-    {
-      id: 4,
-      word: "TestCard4",
-      suggested: false,
-      obvious: false,
-      definition:
-        "TestDefinition1TestDefi nition1TestDe inition1TestDefinition1TestDefin ition1TestDefinition TestDefinition1TestDefinition1TestDefi nition1Test Definition1Te stDefinition1",
-    },
-    {
-      id: 5,
-      word: "TestCard5",
-      suggested: false,
-      obvious: false,
-      definition:
-        "TestDefinition1TestDefi nition1TestDe inition1TestDefinition1TestDefin ition1TestDefinition TestDefinition1TestDefinition1TestDefi nition1Test Definition1Te stDefinition1",
-    },
-  ]);
+  const dispatch = useAppDispatch();
+  const cards = useAppSelector((state) => state.cardsReducer.cards);
   const flipTime = useRef(250);
 
   const handleCardState = (cardId: number, action: Actions) => {
-    updateCards((arr) => cardEditor.editCardMode(arr, cardId, action));
+    if (action === "suggested") {
+      return dispatch(setSuggested(cardId));
+    }
+    dispatch(setObvious(cardId));
   };
   return (
     <>
