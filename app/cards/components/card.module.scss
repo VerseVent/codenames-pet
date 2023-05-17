@@ -9,7 +9,7 @@
     perspective: 1500px;
   }
   &__container {
-    @apply h-44 col-span-1 flex flex-col justify-between content-start
+    @apply h-32 lg:h-44 col-span-1 flex flex-col justify-between content-start
     bg-gradient-to-tr from-cyan-400 via-purple-400 rounded-xl to-purple-600
     text-white font-semibold relative  overflow-hidden;
     text-shadow: 2px 2px #000000;
@@ -38,7 +38,7 @@
     @apply bg-transparent bg-none overflow-hidden;
   }
   &__moded:after {
-    @apply bg-[url('../../public/Question_Mark.png')] 
+    @apply bg-[url('../../../public/Question_Mark.png')] 
     bg-center bg-[length:50px_50px] blur-[2px]
     absolute w-[300%] h-[400%] md:w-[200%] md:h-[200%] top-[-50%] left-[-50%] z-[-1];
 
@@ -50,5 +50,8 @@
   }
   &_obvious {
     @apply bg-green-400 z-0;
+  }
+  &_loading {
+    @apply opacity-40;
   }
 }

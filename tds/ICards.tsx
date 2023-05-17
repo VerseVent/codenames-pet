@@ -1,5 +1,6 @@
 export interface ICard {
-  id: number;
+  _id: string;
+  id: string;
   word: string;
   suggested: boolean;
   obvious: boolean;

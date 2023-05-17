@@ -20,9 +20,16 @@
       }
     ],
     "paths": {
-      "@/*": ["app/*"]
+      "@*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "utils/database.js",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "utils/database.js"
+  ],
   "exclude": ["node_modules"]
 }

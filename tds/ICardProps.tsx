@@ -1,9 +1,11 @@
 export interface ICardProps {
-  id: number;
+  id: string;
+  roomId: string;
+  handleCard: Function;
   word: string;
+  isLoading: boolean;
   suggested: boolean;
   obvious: boolean;
   definition: string;
   flipTime: number;
-  handleCard: Function;
 }
