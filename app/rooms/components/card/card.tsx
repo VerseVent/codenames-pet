@@ -7,7 +7,7 @@ import React, {
   useTransition,
 } from "react";
 import { useRouter } from "next/navigation";
-import { ICardProps } from "../../../tds/ICardProps";
+import { ICardProps } from "../../../../tds/ICardProps";
 import style from "./card.module.scss";
 
 export default function Card({

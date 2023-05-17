@@ -1,10 +1,8 @@
 "use client";
 import React, { useState, useTransition } from "react";
 
-function RoleForm() {
+function roleForm() {
   const [isFetching, setIsFetching] = useState(false);
-  const [isPending, setTransition] = useTransition();
-  const isMutating = isFetching || isPending;
 
   const addMember = () => {};
 
@@ -21,4 +19,4 @@ function RoleForm() {
   );
 }
 
-export default RoleForm;
+export default roleForm;
