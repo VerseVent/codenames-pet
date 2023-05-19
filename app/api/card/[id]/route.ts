@@ -33,11 +33,10 @@ export const PATCH = async (request: Request, { params }: ReqParams) => {
       return cardDoc;
     });
     await roomDoc.save();
-
-    return NextResponse.json({
-      message: "Card successfully edited",
-      status: 200,
-    });
+    const changedCard: ICard = roomDoc.cards.find(
+      (roomCard: ICard) => roomCard.id === cardId
+    );
+    return NextResponse.json(changedCard);
   } catch (error) {
     return new Response("Failed to fetch room", { status: 500 });
   }

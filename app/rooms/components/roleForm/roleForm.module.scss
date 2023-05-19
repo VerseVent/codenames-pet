@@ -1,0 +1,27 @@
+.roleForm {
+  &__container {
+    @apply grid col-span-2 bg-slate-700 rounded-xl p-4;
+  }
+  &__membersTitle {
+    @apply text-xl text-white;
+  }
+  &__members {
+    @apply h-20;
+  }
+  &__membersItem {
+  }
+  &__membersBtn {
+    @apply py-2 mb-4 rounded-xl bg-gradient-to-tr from-purple-300 to-purple-700;
+  }
+  &__masters {
+    @apply h-20;
+  }
+  &__mastersItem {
+  }
+  &__masterTitle {
+    @apply text-xl text-white;
+  }
+  &__masterBtn {
+    @apply py-2 rounded-xl bg-gradient-to-tr from-purple-300 to-purple-700;
+  }
+}

@@ -1,0 +1,27 @@
+.form {
+  position: fixed;
+  @apply rounded-xl;
+  z-index: 500;
+  background-color: rgb(102, 102, 102);
+  width: 70%;
+  padding: 16px;
+  left: 15%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  &__input {
+    @apply p-2 outline-none mr-4 rounded-lg;
+  }
+  &__btn {
+    @apply bg-indigo-500 rounded-lg px-6 py-2 shadow-md font-mono text-base font-semibold;
+  }
+  &__backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

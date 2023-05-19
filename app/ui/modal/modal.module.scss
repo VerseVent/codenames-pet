@@ -1,0 +1,12 @@
+.modal {
+  position: fixed;
+  @apply rounded-xl;
+  z-index: 500;
+  background-color: rgb(146, 146, 146);
+  width: 24%;
+  padding: 20px;
+  left: 36%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}

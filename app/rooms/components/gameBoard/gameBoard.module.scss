@@ -1,0 +1,8 @@
+.gameBoard {
+  &__grid {
+    @apply grid col-span-8;
+  }
+  &__container {
+    @apply grid grid-cols-8 gap-4 px-20;
+  }
+}

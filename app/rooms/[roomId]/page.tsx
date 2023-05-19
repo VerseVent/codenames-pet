@@ -1,7 +1,9 @@
-import { ICard } from "@/tds/ICards";
 import { getRoomById } from "@app/lib/getRoomById";
 import { Metadata } from "next";
 import GameBoard from "../components/gameBoard/gameBoard";
+import NicknameForm from "../components/nicknameForm/nicknameForm";
+import RoleForm from "../components/roleForm/RoleForm";
+import style from "./room.module.scss";
 
 type Params = {
   params: {
@@ -15,15 +17,26 @@ export const metadata: Metadata = {
     "This is a meta description. Welcome to codenames cards. Happy coding and have a nice day",
 };
 
-export default async function RoomPage({ params: { roomId } }: Params) {
-  const {
-    room: { _id, title, cards },
-  } = await getRoomById(roomId);
+export const dynamic = "force-dynamic";
 
+export default async function RoomPage({ params: { roomId } }: Params) {
+  const room = await getRoomById(roomId);
+
+  console.log(room);
   return (
     <>
-      <h2>Room: {title}</h2>
-      <GameBoard cards={cards} />
+      <h2>Room: {room?.title}</h2>
+      <NicknameForm roomId={roomId} />
+      <div className={style.room__container}>
+        <RoleForm
+          players={room.players}
+          roomId={room._id}
+          members={room.members}
+          masters={room.masters}
+        />
+        <GameBoard cards={room.cards} roomId={room._id} />
+        {/* <RoleForm /> */}
+      </div>
     </>
   );
 }

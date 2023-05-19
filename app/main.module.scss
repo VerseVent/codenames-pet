@@ -1,3 +1,6 @@
 .container {
-  @apply mx-auto max-w-[1280px] p-4;
+  @apply mx-auto max-w-[1760px] p-4;
+}
+.bodyContainer {
+  @apply bg-gradient-to-br from-blue-900 to-purple-500 h-[100vh];
 }

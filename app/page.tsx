@@ -5,7 +5,9 @@ export default function Home() {
     <div>
       <h1>Home</h1>
       {/* <Link href="/cards">Cards</Link> */}
-      <Link href="/rooms">Rooms</Link>
+      <Link prefetch={false} href="/rooms">
+        Rooms
+      </Link>
     </div>
   );
 }

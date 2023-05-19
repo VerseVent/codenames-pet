@@ -16,49 +16,37 @@ export const GET = async () => {
 export const POST = async () => {
   try {
     await connectToDb();
-    const roomsTitles = Room.create([
+    Room.create([
       {
-        title: "Room153436",
+        title: "Rooxcvxc436",
+        players: [],
+        members: [],
+        masters: [],
         cards: [
-          // {
-          //   word: "test12312",
-          //   suggested: false,
-          //   obvious: false,
-          //   definition:
-          //     "Test definition from database to test server/client components",
-          // },
           {
-            word: "sdvdssdvb",
+            word: "txzcz12",
             suggested: false,
             obvious: false,
             definition:
               "Test definition from database to test server/client components",
           },
-          // {
-          //   word: "testword3",
-          //   suggested: false,
-          //   obvious: false,
-          //   definition:
-          //     "Test definition from database to test server/client components",
-          // },
-          // {
-          //   word: "testword4",
-          //   suggested: false,
-          //   obvious: false,
-          //   definition:
-          //     "Test definition from database to test server/client components",
-          // },
-          // {
-          //   word: "testword5",
-          //   suggested: false,
-          //   obvious: false,
-          //   definition:
-          //     "Test definition from database to test server/client components",
-          // },
+          {
+            word: "tezxczxrd4",
+            suggested: false,
+            obvious: false,
+            definition:
+              "Test definition from database to test server/client components",
+          },
+          {
+            word: "tecvxvrd5",
+            suggested: false,
+            obvious: false,
+            definition:
+              "Test definition from database to test server/client components",
+          },
         ],
       },
     ]);
-    console.log(roomsTitles);
     return NextResponse.json({ message: "Room generated" });
   } catch (error) {
     return new Response("Failed to fetch room", { status: 500 });

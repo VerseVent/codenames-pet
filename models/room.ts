@@ -6,6 +6,45 @@ const RoomSchema = new Schema({
     required: [true, "Assign room title!"],
     unique: [true, "Room already exists."],
   },
+  players: [
+    {
+      nickname: {
+        type: String,
+        required: [true, "Enter nickname!"],
+      },
+      // token: {
+      //   type: String,
+      //   unique: [true, "Token collision!"],
+      //   required: [true],
+      // },
+    },
+  ],
+  members: [
+    {
+      nickname: {
+        type: String,
+        required: [true, "Enter nickname!"],
+      },
+      // token: {
+      //   type: String,
+      //   unique: [true, "Token collision!"],
+      //   required: [true],
+      // },
+    },
+  ],
+  masters: [
+    {
+      nickname: {
+        type: String,
+        required: [true, "Enter nickname!"],
+      },
+      // token: {
+      //   type: String,
+      //   unique: [true, "Token collision!"],
+      //   required: [true],
+      // },
+    },
+  ],
   cards: [
     {
       word: {
